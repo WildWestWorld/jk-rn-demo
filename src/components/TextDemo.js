@@ -6,7 +6,7 @@ export default function TextDemo() {
 
     return (
         <View>
-            <Text numberOfLines={1} ellipsizeMode='tail' selectable={true} selectionColor='#D0D0D0'  allowFontScaling={false}>123</Text>
+            <Text numberOfLines={1} ellipsizeMode='tail' selectable={true} selectionColor='#D0D0D0' allowFontScaling={false}>123</Text>
         </View>
     )
 }

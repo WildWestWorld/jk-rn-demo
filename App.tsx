@@ -28,6 +28,9 @@ import ClassView from './src/components/ClassView';
 import FunctionView from './src/components/FunctionView';
 import ViewDemo from './src/components/ViewDemo';
 import TextDemo from './src/components/TextDemo';
+import ImageDemo from './src/components/ImageDemo';
+import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
+import TextInputDemo from './src/components/TextInputDemo';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -142,7 +145,8 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <View style={styles.container}>
-        <TextDemo></TextDemo>
+          {/* <ImageBackgroundDemo></ImageBackgroundDemo> */}
+          <TextInputDemo></TextInputDemo>
       </View>
     </SafeAreaView>
   );
