@@ -31,6 +31,8 @@ import TextDemo from './src/components/TextDemo';
 import ImageDemo from './src/components/ImageDemo';
 import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import TextInputDemo from './src/components/TextInputDemo';
+import TouchableOpacityDemo from './src/components/TouchableOpacityDemo';
+import TouchableHighlightDemo from './src/components/TouchableHighlightDemo';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -145,8 +147,8 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <View style={styles.container}>
-          {/* <ImageBackgroundDemo></ImageBackgroundDemo> */}
-          <TextInputDemo></TextInputDemo>
+        {/* <TouchableOpacityDemo></TouchableOpacityDemo> */}
+        <TouchableHighlightDemo></TouchableHighlightDemo>
       </View>
     </SafeAreaView>
   );
