@@ -33,6 +33,10 @@ import ImageBackgroundDemo from './src/components/ImageBackgroundDemo';
 import TextInputDemo from './src/components/TextInputDemo';
 import TouchableOpacityDemo from './src/components/TouchableOpacityDemo';
 import TouchableHighlightDemo from './src/components/TouchableHighlightDemo';
+import TouchableWithoutFeedbackDemo from './src/components/TouchableWithoutFeedbackDemo';
+import ButtonDemo from './src/components/ButtonDemo';
+import PressableDemo from './src/components/PressableDemo';
+import ScrollViewDemo from './src/components/ScrollViewDemo';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -148,7 +152,11 @@ function App(): React.JSX.Element {
       />
       <View style={styles.container}>
         {/* <TouchableOpacityDemo></TouchableOpacityDemo> */}
-        <TouchableHighlightDemo></TouchableHighlightDemo>
+        {/* <TouchableHighlightDemo></TouchableHighlightDemo> */}
+        {/* <TouchableWithoutFeedbackDemo></TouchableWithoutFeedbackDemo> */}
+        {/* <ButtonDemo></ButtonDemo> */}
+        {/* <PressableDemo></PressableDemo> */}
+        <ScrollViewDemo></ScrollViewDemo>
       </View>
     </SafeAreaView>
   );
