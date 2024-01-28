@@ -37,6 +37,7 @@ import TouchableWithoutFeedbackDemo from './src/components/TouchableWithoutFeedb
 import ButtonDemo from './src/components/ButtonDemo';
 import PressableDemo from './src/components/PressableDemo';
 import ScrollViewDemo from './src/components/ScrollViewDemo';
+import FlatListDemo from './src/components/FlatListDemo';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -156,7 +157,8 @@ function App(): React.JSX.Element {
         {/* <TouchableWithoutFeedbackDemo></TouchableWithoutFeedbackDemo> */}
         {/* <ButtonDemo></ButtonDemo> */}
         {/* <PressableDemo></PressableDemo> */}
-        <ScrollViewDemo></ScrollViewDemo>
+        {/* <ScrollViewDemo></ScrollViewDemo> */}
+        <FlatListDemo></FlatListDemo>
       </View>
     </SafeAreaView>
   );
