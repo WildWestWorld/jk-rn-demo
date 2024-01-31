@@ -1,5 +1,5 @@
-import { SectionList, StyleSheet, Text, View } from 'react-native'
-import React, { useRef, useEffect } from 'react'
+import { SectionList, StyleSheet, Text, View, RefreshControl } from 'react-native'
+import React, { useRef, useEffect, useState } from 'react'
 
 import { SectionData } from '../constants/Data'
 
@@ -35,13 +35,15 @@ export default function SectionListDemo() {
 
     const sectionListRef = useRef(null)
 
+    const [refreshing, setRefreshing] = useState(false)
+
     useEffect(() => {
         setTimeout(() => {
             sectionListRef.current.scrollToLocation({
                 sectionIndex: 1,
                 itemIndex: 3,
                 viewPosition: 0,
-                animated:true
+                animated: true
             })
         }, 2000)
     }, [])
@@ -58,6 +60,22 @@ export default function SectionListDemo() {
                 return <View style={styles.separator}></View>
             }}
             stickySectionHeadersEnabled={true}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => {
+                console.log('onRefresh..')
+                setRefreshing(true);
+
+                setTimeout(() => {
+                    setRefreshing(false)
+                }, 1000)
+
+
+            }}></RefreshControl>}
+
+            onEndReached={() => {
+                console.log('onEndReached')
+            }}
+            onEndReachedThreshold={0.1}
+
 
         ></SectionList>
     )
