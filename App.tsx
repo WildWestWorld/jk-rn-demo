@@ -39,6 +39,7 @@ import PressableDemo from './src/components/PressableDemo';
 import ScrollViewDemo from './src/components/ScrollViewDemo';
 import FlatListDemo from './src/components/FlatListDemo';
 import SectionListDemo from './src/components/SectionListDemo';
+import ModalDemo from './src/components/ModalDemo';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -160,7 +161,8 @@ function App(): React.JSX.Element {
         {/* <PressableDemo></PressableDemo> */}
         {/* <ScrollViewDemo></ScrollViewDemo> */}
         {/* <FlatListDemo></FlatListDemo> */}
-        <SectionListDemo></SectionListDemo>
+        {/* <SectionListDemo></SectionListDemo> */}
+        <ModalDemo></ModalDemo>
       </View>
     </SafeAreaView>
   );
