@@ -161,8 +161,8 @@ function App(): React.JSX.Element {
         {/* <PressableDemo></PressableDemo> */}
         {/* <ScrollViewDemo></ScrollViewDemo> */}
         {/* <FlatListDemo></FlatListDemo> */}
-        {/* <SectionListDemo></SectionListDemo> */}
-        <ModalDemo></ModalDemo>
+        <SectionListDemo></SectionListDemo>
+        {/* <ModalDemo></ModalDemo> */}
       </View>
     </SafeAreaView>
   );

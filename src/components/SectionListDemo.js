@@ -1,4 +1,4 @@
-import { SectionList, StyleSheet, Text, View, RefreshControl } from 'react-native'
+import { SectionList, StyleSheet, Text, View, RefreshControl, StatusBar } from 'react-native'
 import React, { useRef, useEffect, useState } from 'react'
 
 import { SectionData } from '../constants/Data'
@@ -37,51 +37,60 @@ export default function SectionListDemo() {
 
     const [refreshing, setRefreshing] = useState(false)
 
-    useEffect(() => {
-        setTimeout(() => {
-            sectionListRef.current.scrollToLocation({
-                sectionIndex: 1,
-                itemIndex: 3,
-                viewPosition: 0,
-                animated: true
-            })
-        }, 2000)
-    }, [])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         sectionListRef.current.scrollToLocation({
+    //             sectionIndex: 1,
+    //             itemIndex: 3,
+    //             viewPosition: 0,
+    //             animated: true
+    //         })
+    //     }, 2000)
+    // }, [])
 
 
     return (
-        <SectionList ref={sectionListRef} style={styles.sectionList} sections={SectionData} renderItem={renderItem} keyExtractor={(item, index) => `${item}-${index}`} contentContainerStyle={styles.containerStyle} keyboardDismissMode='on-drag' keyboardShouldPersistTaps='handled'
-            ListHeaderComponent={ListHeader}
-            ListFooterComponent={ListFooter}
-            ListEmptyComponent={ListEmpty}
+        <View style={styles.root}>
+            <StatusBar barStyle={'light-content'} backgroundColor='#30303060' animated={true} translucent={false} hidden={true}></StatusBar>
 
-            renderSectionHeader={renderSectionHeader}
-            ItemSeparatorComponent={() => {
-                return <View style={styles.separator}></View>
-            }}
-            stickySectionHeadersEnabled={true}
-            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => {
-                console.log('onRefresh..')
-                setRefreshing(true);
+            <SectionList ref={sectionListRef} style={styles.sectionList} sections={SectionData} renderItem={renderItem} keyExtractor={(item, index) => `${item}-${index}`} contentContainerStyle={styles.containerStyle} keyboardDismissMode='on-drag' keyboardShouldPersistTaps='handled'
+                ListHeaderComponent={ListHeader}
+                ListFooterComponent={ListFooter}
+                ListEmptyComponent={ListEmpty}
 
-                setTimeout(() => {
-                    setRefreshing(false)
-                }, 1000)
+                renderSectionHeader={renderSectionHeader}
+                ItemSeparatorComponent={() => {
+                    return <View style={styles.separator}></View>
+                }}
+                stickySectionHeadersEnabled={true}
+                refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => {
+                    console.log('onRefresh..')
+                    setRefreshing(true);
 
-
-            }}></RefreshControl>}
-
-            onEndReached={() => {
-                console.log('onEndReached')
-            }}
-            onEndReachedThreshold={0.1}
+                    setTimeout(() => {
+                        setRefreshing(false)
+                    }, 1000)
 
 
-        ></SectionList>
+                }}></RefreshControl>}
+
+                onEndReached={() => {
+                    console.log('onEndReached')
+                }}
+                onEndReachedThreshold={0.1}
+
+
+            ></SectionList>
+        </View>
+
     )
 }
 
 const styles = StyleSheet.create({
+    root: {
+        width: '100%',
+        height: '100%',
+    },
     sectionList: {
         width: '100%',
         height: '100%'
