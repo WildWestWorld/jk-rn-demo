@@ -41,6 +41,7 @@ import FlatListDemo from './src/components/FlatListDemo';
 import SectionListDemo from './src/components/SectionListDemo';
 import ModalDemo from './src/components/ModalDemo';
 import SwitchDemo from './src/components/SwitchDemo';
+import TestApi from './src/components/TestApi';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -164,7 +165,8 @@ function App(): React.JSX.Element {
         {/* <FlatListDemo></FlatListDemo> */}
         {/* <SectionListDemo></SectionListDemo> */}
         {/* <ModalDemo></ModalDemo> */}
-        <SwitchDemo></SwitchDemo>
+        {/* <SwitchDemo></SwitchDemo> */}
+        <TestApi></TestApi>
       </View>
     </SafeAreaView>
   );

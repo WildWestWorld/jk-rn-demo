@@ -47,7 +47,7 @@ export default function ModalDemo() {
 
     const hideModal = () => {
         setVisible(false);
-        console.log('onDismiss')
+        console.log('onDismiss6')
     }
 
 
