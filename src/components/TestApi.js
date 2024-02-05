@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform } from 'react-native'
+import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform, Linking } from 'react-native'
 import React, { useEffect } from 'react'
 
 export default function TestApi() {
@@ -47,22 +47,52 @@ export default function TestApi() {
                 // console.log(Platform.isPad)
                 // console.log(Platform.isTV)
 
-                const s1 = {
-                    fontSize: 18
-                }
-                const s2 = {
-                    fontSize: 20,
-                    color: 'red'
-                }
+                // const s1 = {
+                //     fontSize: 18
+                // }
+                // const s2 = {
+                //     fontSize: 20,
+                //     color: 'red'
+                // }
 
                 // const composeStyle = StyleSheet.compose(s1,s2);
                 // console.log(composeStyle)
 
-                const flattenStyle = StyleSheet.flatten([s1, s2]);
-                console.log(flattenStyle)
-                
+                // const flattenStyle = StyleSheet.flatten([s1, s2]);
+                // console.log(flattenStyle)
+
+                // console.log(StyleSheet.absoluteFill)
+                // console.log(StyleSheet.hairlineWidth)
+                // console.log(1 / Dimensions.get('screen').scale)
+
+                // if (Linking.canOpenURL('http://www.baidu.com')) {
+                //     Linking.openURL('https://www.baidu.com/')
+                // }
+                // Linking.openURL('geo:37.2122,12.222')
+                // Linking.openURL('tel:10086')
+                // Linking.openURL('smsto:10086')
+                // Linking.openURL('mailto:10086@qq.com')
+
+                // Linking.canOpenURL('example://gizmos').then((supported) => {
+                //     if (supported) {
+                //         console.log(supported)
+                //       Linking.openURL('example://gizmos?name=123');
+                //     } else {
+                //       // URL cannot be opened
+                //     }
+                //   });
+
+                // Linking.openSettings()
+
+                // if(Platform.OS === 'android'){
+                //     Linking.sendIntent('com.awesomeDemo.demo.test', [{ key: 'name', value: '张三' }])
+                // }
+
+                console.log(Linking.getInitialURL())
 
             }}></Button>
+
+            {/* <View style={styles.test}></View> */}
         </View>
     )
 }
@@ -85,6 +115,9 @@ const styles = StyleSheet.create({
         })
 
 
+    },
+    test: {
+        ...StyleSheet.absoluteFill,
+        backgroundColor: '#ff000030'
     }
-
 })
