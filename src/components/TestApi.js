@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform, Linking, PixelRatio, BackHandler } from 'react-native'
+import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform, Linking, PixelRatio, BackHandler, PermissionsAndroid } from 'react-native'
 import React, { useEffect } from 'react'
 import { useBackHandler } from '@react-native-community/hooks'
 
@@ -109,7 +109,46 @@ export default function TestApi() {
                 // console.log(200 * PixelRatio.get())
 
 
-                BackHandler.exitApp();
+                // BackHandler.exitApp();
+
+                // console.log(PermissionsAndroid.PERMISSIONS)
+
+                const needPermission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+
+                // PermissionsAndroid.check(needPermission).then((result) => {
+
+                //     console.log(result)
+                //     if (!result) {
+                //         PermissionsAndroid.request(needPermission).then((status) => {
+                //             console.log(status)
+                //         });
+                //     }
+
+                // })
+
+                // PermissionsAndroid.request(
+                //     PermissionsAndroid.PERMISSIONS.CAMERA,
+                //     {
+                //         title: 'Camera Permission',
+                //         message: 'App needs access to your camera',
+                //         buttonNeutral: 'Ask Me Later',
+                //         buttonNegative: 'Cancel',
+                //         buttonPositive: 'OK',
+                //     },
+                // ).then((granted) => {
+                //     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                //         console.log('Camera permission granted');
+                //     } else {
+                //         console.log('Camera permission denied');
+                //     }
+
+                // });
+                // PermissionsAndroid.requestMultiple([
+                //     PermissionsAndroid.PERMISSIONS.CAMERA,
+                //     PermissionsAndroid.PERMISSIONS.CAMERA,
+                // ])
+                
+
 
             }}></Button>
 
