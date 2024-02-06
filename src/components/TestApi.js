@@ -1,25 +1,38 @@
-import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform, Linking } from 'react-native'
+import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform, Linking, PixelRatio, BackHandler } from 'react-native'
 import React, { useEffect } from 'react'
+import { useBackHandler } from '@react-native-community/hooks'
+
 
 export default function TestApi() {
+
+    useBackHandler(() => {
+        return true;
+    })
+
 
     useEffect(() => {
         const subscription = Dimensions.addEventListener('change', (window, screen) => {
             console.log(window);
             console.log(screen);
         })
+
+        // BackHandler.addEventListener('hardwareBackPress',backForAndroid)
+
         return () => {
             subscription.remove();
+            // BackHandler.removeEventListener('hardwareBackPress',backForAndroid)
         }
     }, [])
 
-
+    // const backForAndroid = () =>{
+    //     return false;
+    // }
 
 
 
 
     return (
-        <View style={{ marginTop: Platform.OS === 'android' ? 20 : 0 }}>
+        <View style={styles.root}>
             <Button title='按钮' onPress={() => {
                 // const buttons = [{ text: '取消', onPress: () => console.log('取消') }, { text: '确定', onPress: () => console.log('确定') }]
                 // Alert.alert('这是个标题','这是一个提示信息',buttons)
@@ -88,9 +101,30 @@ export default function TestApi() {
                 //     Linking.sendIntent('com.awesomeDemo.demo.test', [{ key: 'name', value: '张三' }])
                 // }
 
-                console.log(Linking.getInitialURL())
+                // console.log(Linking.getInitialURL())
+
+                // console.log(PixelRatio.get())
+                // console.log(PixelRatio.getFontScale())
+                // console.log(PixelRatio.getPixelSizeForLayoutSize(200))
+                // console.log(200 * PixelRatio.get())
+
+
+                BackHandler.exitApp();
 
             }}></Button>
+
+            <View style={styles.view}>
+                <View style={styles.subView}></View>
+                <View style={styles.subView}></View>
+                <View style={styles.subView}></View>
+                <View style={styles.subView}></View>
+                <View style={styles.subView}></View>
+                <View style={styles.subView}></View>
+                <View style={styles.subView}></View>
+                <View style={styles.subView}></View>
+
+            </View>
+
 
             {/* <View style={styles.test}></View> */}
         </View>
@@ -119,5 +153,14 @@ const styles = StyleSheet.create({
     test: {
         ...StyleSheet.absoluteFill,
         backgroundColor: '#ff000030'
-    }
+    },
+    view: {
+        width: '100%',
+        backgroundColor: 'red'
+    },
+    subView: {
+        width: '100%',
+        backgroundColor: 'green',
+        height: PixelRatio.roundToNearestPixel(32.1)
+    },
 })
