@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform, Linking, PixelRatio, BackHandler, PermissionsAndroid } from 'react-native'
+import { StyleSheet, Text, View, Button, Alert, Dimensions, Platform, Linking, PixelRatio, BackHandler, PermissionsAndroid, Vibration, ToastAndroid,Keyboard, TextInput } from 'react-native'
 import React, { useEffect } from 'react'
 import { useBackHandler } from '@react-native-community/hooks'
 
@@ -18,11 +18,27 @@ export default function TestApi() {
 
         // BackHandler.addEventListener('hardwareBackPress',backForAndroid)
 
+
+        const  showSubscription =    Keyboard.addListener('keyboardDidShow',onKeyboardShow)
+        const  hideubscription =  Keyboard.addListener('keyboardDidHide',onKeyboardHide)
+
         return () => {
             subscription.remove();
             // BackHandler.removeEventListener('hardwareBackPress',backForAndroid)
+
+            showSubscription.remove();
+            hideubscription.remove();
         }
     }, [])
+
+    const onKeyboardShow = ()=>{
+        console.log('键盘出现')
+    }
+
+    const onKeyboardHide = ()=>{
+        console.log('键盘隐藏')
+
+    }
 
     // const backForAndroid = () =>{
     //     return false;
@@ -113,7 +129,7 @@ export default function TestApi() {
 
                 // console.log(PermissionsAndroid.PERMISSIONS)
 
-                const needPermission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+                // const needPermission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
 
                 // PermissionsAndroid.check(needPermission).then((result) => {
 
@@ -147,12 +163,22 @@ export default function TestApi() {
                 //     PermissionsAndroid.PERMISSIONS.CAMERA,
                 //     PermissionsAndroid.PERMISSIONS.CAMERA,
                 // ])
-                
 
+                // Vibration.vibrate(1000);
+                // Vibration.cancel();
+
+                // Vibration.vibrate([100,500,200,500]);
+                // Vibration.vibrate([100,500,200,500],true);
+
+                // ToastAndroid.show('这是一个提示',ToastAndroid.SHORT)
+                // ToastAndroid.showWithGravity('这是一个提示', ToastAndroid.LONG, ToastAndroid.TOP)
+
+
+                Keyboard.dismiss();
 
             }}></Button>
 
-            <View style={styles.view}>
+            {/* <View style={styles.view}>
                 <View style={styles.subView}></View>
                 <View style={styles.subView}></View>
                 <View style={styles.subView}></View>
@@ -162,10 +188,15 @@ export default function TestApi() {
                 <View style={styles.subView}></View>
                 <View style={styles.subView}></View>
 
-            </View>
+            </View> */}
 
 
             {/* <View style={styles.test}></View> */}
+
+            <View style={[{ width: 100, height: 100, backgroundColor: '#3050ff', marginTop: 20 }, { transform: [{ translateX: 200 }] }]}></View>
+            
+            <TextInput style={{width:'100%',height:56,backgroundColor:'#E0E0E0'}}></TextInput>
+
         </View>
     )
 }
