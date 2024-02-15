@@ -42,6 +42,11 @@ import SectionListDemo from './src/components/SectionListDemo';
 import ModalDemo from './src/components/ModalDemo';
 import SwitchDemo from './src/components/SwitchDemo';
 import TestApi from './src/components/TestApi';
+import Animate1 from './src/animate/Animate1';
+import Animate2 from './src/animate/Animate2';
+import Animate3 from './src/animate/Animate3';
+import TSDemo from './src/ts/TSDemo';
+import MemoPage from './src/memo/MemoPage';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -166,7 +171,12 @@ function App(): React.JSX.Element {
         {/* <SectionListDemo></SectionListDemo> */}
         {/* <ModalDemo></ModalDemo> */}
         {/* <SwitchDemo></SwitchDemo> */}
-        <TestApi></TestApi>
+        {/* <TestApi></TestApi> */}
+        {/* <Animate1></Animate1> */}
+        {/* <Animate2></Animate2> */}
+        {/* <Animate3></Animate3> */}
+        {/* <TSDemo></TSDemo> */}
+        <MemoPage></MemoPage>
       </View>
     </SafeAreaView>
   );
