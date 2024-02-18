@@ -9,9 +9,9 @@ import com.facebook.react.uimanager.ViewManager
 
 class DemoReactPackage :ReactPackage{
     override fun createNativeModules(p0: ReactApplicationContext): MutableList<NativeModule> {
-        val list = mutableListOf<NativeModule>();
-        list.add(DemoNativeModule());
-        return list;
+        val modules: MutableList<NativeModule> = ArrayList();
+        modules.add(DemoNativeModule(p0))
+        return modules;
     }
 
     override fun createViewManagers(p0: ReactApplicationContext): MutableList<ViewManager<View, ReactShadowNode<*>>> {

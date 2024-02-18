@@ -47,6 +47,7 @@ import Animate2 from './src/animate/Animate2';
 import Animate3 from './src/animate/Animate3';
 import TSDemo from './src/ts/TSDemo';
 import MemoPage from './src/memo/MemoPage';
+import NativePage from './src/native/NativePage';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -176,7 +177,8 @@ function App(): React.JSX.Element {
         {/* <Animate2></Animate2> */}
         {/* <Animate3></Animate3> */}
         {/* <TSDemo></TSDemo> */}
-        <MemoPage></MemoPage>
+        {/* <MemoPage></MemoPage> */}
+        <NativePage></NativePage>
       </View>
     </SafeAreaView>
   );
