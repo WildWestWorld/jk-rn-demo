@@ -12,6 +12,15 @@ class DemoNativeModule(reactContext: ReactApplicationContext?) : ReactContextBas
         return "App";
     }
 
+
+    override fun getConstants(): MutableMap<String, Any>? {
+
+        val map = mutableMapOf<String, Any>();
+        map.put("versionName",BuildConfig.VERSION_NAME)
+        map.put("versionCode",BuildConfig.VERSION_CODE)
+        return map;
+    }
+
     @ReactMethod
     fun openGallery() {
         if (currentActivity == null) {
@@ -23,10 +32,10 @@ class DemoNativeModule(reactContext: ReactApplicationContext?) : ReactContextBas
 
     @ReactMethod
     fun getVersionName(promise: Promise) {
-        var versionName :String  = BuildConfig.VERSION_NAME;
-        if(versionName == null){
+        var versionName: String = BuildConfig.VERSION_NAME;
+        if (versionName == null) {
             promise.reject(Throwable("获取版本失败"))
-        }else{
+        } else {
             promise.resolve(versionName)
         }
     }
