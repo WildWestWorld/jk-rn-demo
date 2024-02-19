@@ -1,5 +1,6 @@
 import { Button, NativeModules, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import NativeInfoView from './NativeInfoView';
 
 export default function NativePage() {
     return (
@@ -16,6 +17,7 @@ export default function NativePage() {
                 console.log(`versionName=${versionName},version=${versionCode}`)
             }}></Button>
 
+                <NativeInfoView></NativeInfoView>
         </View>
     )
 }
