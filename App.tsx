@@ -48,6 +48,7 @@ import Animate3 from './src/animate/Animate3';
 import TSDemo from './src/ts/TSDemo';
 import MemoPage from './src/memo/MemoPage';
 import NativePage from './src/native/NativePage';
+import NativeInfoViewGroup from './src/native/NativeInfoViewGroup';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -179,6 +180,7 @@ function App(): React.JSX.Element {
         {/* <TSDemo></TSDemo> */}
         {/* <MemoPage></MemoPage> */}
         <NativePage></NativePage>
+        {/* <NativeInfoViewGroup></NativeInfoViewGroup> */}
       </View>
     </SafeAreaView>
   );
